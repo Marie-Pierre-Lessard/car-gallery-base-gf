@@ -12,6 +12,7 @@ main {
 }
 
 /* If one creates a CSS rule for the element "section", it initially appears to work because there are two sections inside of another section, which all become grids. The sections that are children are put inside the parent grid, in different columns. The problem is that the parent grid needs to have a different number of columns. If it has 3 columns, there is one empty column that gets created at the end, but that empty column was hard to see, so it looked like it wasn't there. */
+/* It works if one uses IDs (e.g. #carGallery) instead of classes (e.g. .car-gallery-grid). However, online, I found that the use as IDs as CSS selectors was not recommended. */
 .car-gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -28,15 +29,18 @@ main {
   gap: 1rem;
 }
 
-.imgTile {
+img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Hashtag in front of IDs, period in front of classes. */
+/* Hashtag in front of IDs, period in front of classes. 
+I chose to use a single class for all images (above) since they all had the same properties. It's better to aim for a DRY code through the reuse of styles (DRY: don't repeat yourself). 
+Moreover, the use of IDs (a unique identifier) is not recommended for styling because the styling won't be reusable (it applies to sth unique). Applying CSS rules to unique elements with IDs defeats the purpose of CSS. On Reddit, Blue_Moon_Lake wrote that if it is tempting to use IDs as CSS selectors, a redesign of the DOM or the CSS might be in order. https://www.reddit.com/r/webdev/comments/siuhh8/css_is_the_advice_to_not_use_ids_for_selectors/?rdt=40253
 #big {
   width: 100%;
   height: 100%;
   object-fit: cover;  
 }
+*/
