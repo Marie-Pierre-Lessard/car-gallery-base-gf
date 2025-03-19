@@ -1,1 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+main {
+  margin-inline: 1rem;
+  margin-block: 1rem;
+}
+
+/* If one creates a CSS rule for the element "section", it initially appears to work because there are two sections inside of another section, which all become grids. The sections that are children are put inside the parent grid, in different columns. The problem is that the parent grid needs to have a different number of columns. If it has 3 columns, there is one empty column that gets created at the end, but that empty column was hard to see, so it looked like it wasn't there. */
+.car-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+    /* Assignment: make the page responsive by getting the big image to go under the thumbnail pictures when the viewing device is small. */
+    @media screen and (max-width: 800px) {
+     grid-template-columns: 1fr;
+  } 
+}
+
+.thumbs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.imgTile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hashtag in front of IDs, period in front of classes. */
+#big {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  
+}
